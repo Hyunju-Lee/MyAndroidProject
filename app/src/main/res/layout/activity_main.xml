@@ -73,10 +73,12 @@
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_thumb_up" />
+                    <Button
+                        android:id="@+id/thumbup"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_thumb_up"
+                        android:onClick="onThumbupButtonClicked" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -85,11 +87,13 @@
                         android:textColor="#ffffffff"
                         android:textSize="20dp" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <Button
+                        android:id="@+id/thumbdown"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_thumb_down" />
+                        android:background="@drawable/ic_thumb_down"
+                        android:onClick="onThumbdownButtonClicked" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -238,10 +242,18 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/colorswitchtest" />
 
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#ff0000"
+                />
+
             <TextView
+                android:id="@+id/test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕\n안녕"
+                android:text="안녕\n"
                 android:textSize="20dp" />
 
         </LinearLayout>
