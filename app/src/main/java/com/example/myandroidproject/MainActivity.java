@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         test = (TextView) findViewById(R.id.test);
         view1 = (View) findViewById(R.id.view1);
 
+        //onClickListener는 Button, View모두로부터 접근이 가능하지만 onTouchListener는 View로만 접근이 가능하다.
         view1.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 
     public void println(String str){
@@ -73,7 +78,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onThumbupButtonClicked(View v){
+    //토스트와 비슷하게 스낵바라는 기능도 있다. 또한 이것들은 xml로 구성할 수 없다??
+    public void onThumbupButtonClicked(View v){//Toast를 띄우는 2가지 방법, 아래 방법은 view를 제대로 만들어야 정상 작동한다.
+        Toast.makeText(getApplicationContext(), "따봉", Toast.LENGTH_LONG).show();
+        /*Toast toast = new Toast(getApplicationContext()); //getApplicationContext()로 (아마?) 앱의 최상위 레이어에 toast를 띄우도록 한다.
+        toast.setGravity(Gravity.CENTER, 200, 200);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(v);
+        toast.show();*/
 
     }
 
