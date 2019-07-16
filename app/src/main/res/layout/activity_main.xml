@@ -256,6 +256,12 @@
                 android:text="안녕\n"
                 android:textSize="20dp" />
 
+            <!-- 직접 정의한 view는 패키지명도 명시해주어야 한다. -->
+            <com.example.myandroidproject.BitmapButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
         </LinearLayout>
 
     </LinearLayout>

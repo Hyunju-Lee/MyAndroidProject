@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         view1.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {//onCreate부분이 길어지기 때문에 메소드로 따로 빼서 구현하는 것을 추천한다.
 
                 int action = motionEvent.getAction();
 
@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(v);
         toast.show();*/
-
     }
 
     public void onThumbdownButtonClicked(View v){
