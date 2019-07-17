@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button thumbdownButton;
     TextView test;
     View view1;
+    ListView listView;
     int switchFrame = 0;
 
     @Override
@@ -63,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        //SingerAdapter를 ListView에 set시켜 연결시킨 후 onCreate()에 추가하여 생성한 view를 연결시켜준다.
+        SingerAdapter singerAdapter = new SingerAdapter();
+        //adapter에 item을 직접 추가한다.
+        singerAdapter.addItem(new SingerItem("프로미스나인", "010-0000-0000"));
+        singerAdapter.addItem(new SingerItem("에이프릴", "010-1111-1111"));
+        singerAdapter.addItem(new SingerItem("러블리즈", "010-2222-2222"));
+        singerAdapter.addItem(new SingerItem("주은", "010-3333-3333"));
+
+        listView.setAdapter(singerAdapter);
 
     }
 
@@ -116,9 +127,21 @@ public class MainActivity extends AppCompatActivity {
             return id;
         }
 
+        public void addItem(SingerItem singerItem){
+            singerItems.add(singerItem);
+        }
+
+        //작성한 SingerItemView의 method를 이용하여 view를 set하고 return하여 화면에 보여주도록 한다.
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
+        public View getView(int position, View view, ViewGroup viewGroup) {
+
+            SingerItemView singerItemView = new SingerItemView(getApplicationContext());//view는 기본적으로 context parameter를 가진다.
+
+            SingerItem singerItem = singerItems.get(position);
+            singerItemView.setName(singerItem.getName());
+            singerItemView.setMobile(singerItem.getMobile());
+
+            return singerItemView;
         }
     }
 

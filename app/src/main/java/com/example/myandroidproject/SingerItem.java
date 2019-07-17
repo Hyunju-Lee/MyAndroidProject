@@ -2,15 +2,20 @@ package com.example.myandroidproject;
 
 public class SingerItem {
 
-    private String item;
+    private String name;
     private String mobile;
 
-    public String getItem() {
-        return item;
+    public SingerItem(String name, String mobile) {
+        this.name = name;
+        this.mobile = mobile;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMobile() {
@@ -24,11 +29,9 @@ public class SingerItem {
     @Override
     public String toString() {
         return "SingerItem{" +
-                "item='" + item + '\'' +
+                "name='" + name + '\'' +
                 ", mobile='" + mobile + '\'' +
                 '}';
     }
-
-
 
 }
