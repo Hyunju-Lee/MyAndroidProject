@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void println(String str){
@@ -90,6 +94,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void onThumbdownButtonClicked(View v){
 
+    }
+
+    //ListView를 사용하기 위해 adapter pattern을 이용한다. ListView는 xml파일로 껍데기만 만들고 동작하는 코드는 java로 구현한다.
+    //adapter pattern에는 list형의 클래스의 size, 포함하는 object, id, view를 return하는 method를 무조건적으로 작성해야 한다.
+    class SingerAdapter extends BaseAdapter{
+
+        ArrayList<SingerItem> singerItems = new ArrayList<SingerItem>();
+        @Override
+        public int getCount() {
+            return singerItems.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return singerItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int id) {
+            return id;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            return null;
+        }
     }
 
 }
